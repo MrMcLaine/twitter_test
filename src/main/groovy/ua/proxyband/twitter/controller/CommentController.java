@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.proxyband.twitter.model.Comment;
 import ua.proxyband.twitter.service.CommentService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/comments")
 public class CommentController {
@@ -20,5 +22,12 @@ public class CommentController {
         Comment createdComment = commentService.createComment(comment);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdComment);
+    }
+
+    @GetMapping("/{postId}")
+    public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable String postId) {
+        List<Comment> comments = commentService.getCommentsByPostId(postId);
+
+        return ResponseEntity.ok(comments);
     }
 }

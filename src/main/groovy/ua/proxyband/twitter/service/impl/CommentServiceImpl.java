@@ -5,6 +5,8 @@ import ua.proxyband.twitter.model.Comment;
 import ua.proxyband.twitter.repository.CommentRepository;
 import ua.proxyband.twitter.service.CommentService;
 
+import java.util.List;
+
 @Service
 class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
@@ -17,6 +19,12 @@ class CommentServiceImpl implements CommentService {
     public Comment createComment(Comment comment) {
 
         return commentRepository.save(comment);
+    }
+
+    @Override
+    public List<Comment> getCommentsByPostId(String postId) {
+
+        return commentRepository.findAllByPostId(postId);
     }
 }
 
