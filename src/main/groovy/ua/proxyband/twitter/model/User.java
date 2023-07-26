@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Document(collection = "users")
 @Data
-class User extends BaseEntity {
+public class User extends BaseEntity {
     String email;
     String password;
     String firstName;
