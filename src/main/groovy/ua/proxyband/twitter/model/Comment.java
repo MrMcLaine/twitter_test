@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "comments")
 @Data
-class Comment extends BaseEntity {
+public  class Comment extends BaseEntity {
     String authorId;
     String postId;
     String content;
