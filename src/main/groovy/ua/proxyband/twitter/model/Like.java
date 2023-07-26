@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "likes")
 @Data
-class Like extends BaseEntity {
+public class Like extends BaseEntity {
     String userId;
     String postId;
 
