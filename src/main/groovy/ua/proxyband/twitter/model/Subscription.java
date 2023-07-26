@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "subscriptions")
 @Data
-class Subscription extends BaseEntity {
+public class Subscription extends BaseEntity {
     String followerId;
     String ownerUserId;
 
