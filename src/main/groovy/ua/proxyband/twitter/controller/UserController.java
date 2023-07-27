@@ -3,6 +3,7 @@ package ua.proxyband.twitter.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ua.proxyband.twitter.dto.UserWithPostsDTO;
 import ua.proxyband.twitter.model.User;
 import ua.proxyband.twitter.service.UserService;
 
@@ -44,5 +45,12 @@ public class UserController {
 
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserWithPostsDTO> getUserWithPosts(@PathVariable String userId) {
+        UserWithPostsDTO userWithPostsDTO = userService.getUserWithPosts(userId);
+
+        return ResponseEntity.ok(userWithPostsDTO);
     }
 }

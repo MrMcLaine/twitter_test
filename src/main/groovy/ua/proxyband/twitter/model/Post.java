@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 public
 class Post extends BaseEntity {
-    String authorId;
+    String authorPostId;
     String content;
 
     @Override
@@ -18,7 +18,7 @@ class Post extends BaseEntity {
 
         Post post = (Post) o;
 
-        if (getAuthorId() != null ? !getAuthorId().equals(post.getAuthorId()) : post.getAuthorId() != null)
+        if (getAuthorPostId() != null ? !getAuthorPostId().equals(post.getAuthorPostId()) : post.getAuthorPostId() != null)
             return false;
         return getContent() != null ? getContent().equals(post.getContent()) : post.getContent() == null;
     }
@@ -26,7 +26,7 @@ class Post extends BaseEntity {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (getAuthorId() != null ? getAuthorId().hashCode() : 0);
+        result = 31 * result + (getAuthorPostId() != null ? getAuthorPostId().hashCode() : 0);
         result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
         return result;
     }
